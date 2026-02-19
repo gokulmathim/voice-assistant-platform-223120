@@ -142,6 +142,13 @@ export POSTGRES_DB="${DB_NAME}"
 export POSTGRES_PORT="${DB_PORT}"
 EOF
 
+# Initialize application schema (idempotent)
+echo ""
+echo "Initializing application schema..."
+chmod +x init_schema.sh
+./init_schema.sh
+
+echo ""
 echo "PostgreSQL setup complete!"
 echo "Database: ${DB_NAME}"
 echo "User: ${DB_USER}"
